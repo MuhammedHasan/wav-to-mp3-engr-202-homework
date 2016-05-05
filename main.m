@@ -2,7 +2,9 @@
 fileName='wavs/8k8bitpcm.wav';
 [y, fs]=wavread(fileName);
 
-time=(1:length(y))/fs;
-% plot(time, y);
+time = (1:length(y)) / fs;
 
-disp(length(huffEncodeFre(y(1:10))))
+% plot(time, y)
+% pause
+
+disp(length(huffEncodeFre(y')))
