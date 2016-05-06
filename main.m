@@ -2,9 +2,17 @@
 fileName='wavs/8k8bitpcm.wav';
 [y, fs]=wavread(fileName);
 
-time = (1:length(y)) / fs;
+time = (1:length(y(1:300))) / fs;
 
-% plot(time, y)
-% pause
+plot(time, y(1:300))
+pause
 
-disp(length(huffEncodeFre(y')))
+[encodedFre, fres, huffTable] = huffEncodeFre(y(1:300)');
+
+
+ry = huffDecodeFre(encodedFre, fres, huffTable)
+
+time = (1:length(ry)) / fs;
+
+plot(time, ry)
+pause
